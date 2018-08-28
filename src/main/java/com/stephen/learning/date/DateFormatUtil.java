@@ -6,6 +6,10 @@ import com.stephen.learning.enumeration.MonthConstant;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,6 +22,22 @@ import java.util.List;
  */
 public class DateFormatUtil {
     private static String PATTERN="yyyy-MM-dd HH:mm";
+    private static String PATTERN2="yyyy-MM-dd HH:mm:ss";
+
+    /**
+     * 使用jdk自带的DateTimeFormatter线程安全类格式化日期
+     * @param date
+     * @return
+     */
+    public static String getFormatDateTime(Date date){
+        Instant instant = date.toInstant();
+        ZoneId zoneId = ZoneId.systemDefault();
+        // atZone()方法返回在指定时区从此Instant生成的ZonedDateTime。
+        LocalDateTime localDateTime = instant.atZone(zoneId).toLocalDateTime();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(PATTERN2);
+        return formatter.format(localDateTime);
+    }
 
     /**
      * 时间转换
@@ -102,6 +122,8 @@ public class DateFormatUtil {
         System.out.println(time);
         time=DateFormatUtil.getTime3("8月2号 11:39","1535096035916");
         System.out.println(time);
+        time=DateFormatUtil.getFormatDateTime(new Date(Long.valueOf("1535096035916")));
+        System.out.println(time);
 
         Date date=new Date(Long.valueOf("1535342773638"));
         Calendar calendar=Calendar.getInstance();
@@ -111,5 +133,11 @@ public class DateFormatUtil {
         calendar.add(Calendar.MINUTE,-120);
         System.out.println(DateFormatUtils.format(calendar.getTime(),PATTERN));
         System.out.println(-Integer.valueOf(20));
+
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy年MM月dd日 hh:mm a");
+        String nowStr = now.format(format);
+        System.out.println(nowStr);
+
     }
 }
