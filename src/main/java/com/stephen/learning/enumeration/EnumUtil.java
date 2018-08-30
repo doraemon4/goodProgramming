@@ -36,6 +36,7 @@ public class EnumUtil {
     }
 
     public static void main(String[] args) {
+        //使用apache的工具包
         boolean flag=Arrays.asList(MonthConstant.Indonesian.values()).
                 contains(EnumUtils.getEnum(MonthConstant.Indonesian.class,"Agustus"));
         System.out.println(flag);
