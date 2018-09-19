@@ -40,7 +40,9 @@ public class DateFormatUtil {
     }
 
     /**
-     * 时间转换
+     * 时间转换(使用apache时间处理工具类)
+     * 添加国际化：DateUtils.parseDate(date,Locale.ENGLISH,"yyyy-MM-dd hh:mm:ss aa");
+     *           DateFormatUtils.format(new Date(),"yyyy-MM-dd hh:mm:ss aa",Locale.ENGLISH)
      * @param callTime 原始时间格式：2 Agustus 11.39
      * @param timestamp 时间戳
      * @return
