@@ -13,3 +13,8 @@ eg:scp web-1.0-SNAPSHOT.jar root@192.168.1.10:/app/services
   cat log.txt | grep 'ERROR' -B 5 之前5行  
   cat log.txt | grep 'ERROR' -C 5 前后5行
 
+####git的一些常用命令
+* git branch 创建分支
+* git checkout -b  创建并切换
+* git reflog  查看提交的历史版本
+* git reset --hard 973cf21 回退到此版本
