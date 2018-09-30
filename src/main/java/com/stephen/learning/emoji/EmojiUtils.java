@@ -88,8 +88,22 @@ public class EmojiUtils {
         System.out.println(EmojiUtils.emojiConvert("hello world😄abc😨"));
         System.out.println(EmojiUtils.emojiRecovery("hello world[%F0%9F%98%84]abc[%F0%9F%98%A8]"));
 
-        //使用工具类
-        System.out.println(EmojiParser.parseToAliases("hello world😄abc😨"));
-        System.out.println(EmojiParser.parseToUnicode("hello world:smile:abc:fearful:"));
+        //使用工具类(emoji-java)
+        System.out.println(EmojiParser.parseToAliases("西藏@\uD83D\uDE02\uD83D\uDE02\uD83D\uDE03"));
+        System.out.println(EmojiParser.parseToUnicode("西藏@:joy::joy::smiley:"));
+
+        //使用工具库(emoji4j)
+        String text=emoji4j.EmojiUtils.htmlify("hello world😄abc😨");
+        System.out.println(text);
+        text=emoji4j.EmojiUtils.hexHtmlify("hello world😄abc😨");
+        System.out.println(text);
+        text=emoji4j.EmojiUtils.shortCodify(text);
+        System.out.println(text);
+        System.out.println(emoji4j.EmojiUtils.emojify(text));
+        text=emoji4j.EmojiUtils.removeAllEmojis("hello world😄abc😨");
+        System.out.println(text);
+
+        System.out.println(emoji4j.EmojiUtils.getEmoji("&#128552;").getEmoji());
+        System.out.println(emoji4j.EmojiUtils.getEmoji("blue_car").getEmoji());
     }
 }
