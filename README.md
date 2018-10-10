@@ -18,3 +18,4 @@ eg:scp web-1.0-SNAPSHOT.jar root@192.168.1.10:/app/services
 * git checkout -b  创建并切换
 * git reflog  查看提交的历史版本
 * git reset --hard 973cf21 回退到此版本
+* git push -f 强制推(遇到代码提交不上去，又merge不了，强制用本地代码覆盖git仓库的代码)
