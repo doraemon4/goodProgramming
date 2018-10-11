@@ -1,6 +1,16 @@
 # goodProgramming
 积累工作中使用的一些常用技巧  
 
+###多线程避免死锁
+*  避免一个线程同时获取多个锁  
+    `synchronized(B){
+        synchronized (A) {
+            System.out.println("2");
+        }
+    }`
+*  避免一个线程在锁内同时占用多个资源，尽量保证每个锁只占用一个资源
+*  尝试使用定时锁`lock.tryLock(timeout)`来代替使用内部锁机制
+
 ###linux一些常用的命令:
 * ssh 连接服务器
 * scp 源文件  目的机器地址  
