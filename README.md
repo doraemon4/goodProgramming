@@ -2,6 +2,7 @@
 积累工作中使用的一些常用技巧  
 
 ###多线程避免死锁
+*  **synchronized**锁住的是对象，是防止多个线程同时操作同一个对象的同步代码块，对于方法上面的**synchronized**锁住的就是当前对象*this*
 *  避免一个线程同时获取多个锁  
     `synchronized(B){
         synchronized (A) {
