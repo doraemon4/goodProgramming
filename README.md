@@ -11,6 +11,7 @@
     }`
 *  避免一个线程在锁内同时占用多个资源，尽量保证每个锁只占用一个资源
 *  尝试使用定时锁`lock.tryLock(timeout)`来代替使用内部锁机制
+*  **volatile**实现了多个线程之间共享，体现了可见性，但是却不能实现原子性。`java.util.concurrent.atomic`下的AtomicInteger可实现原子性
 
 ###linux一些常用的命令:
 * ssh 连接服务器

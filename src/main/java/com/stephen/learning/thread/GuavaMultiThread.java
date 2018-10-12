@@ -40,7 +40,7 @@ public class GuavaMultiThread {
 
         List<ListenableFuture<String>> futures = Lists.newArrayList();
         //定义线程数
-        ExecutorService pool = Executors.newFixedThreadPool(10);
+        ExecutorService pool = Executors.newFixedThreadPool(5);
         ListeningExecutorService executorService = MoreExecutors.listeningDecorator(pool);
         for (int i = 0; i < list.size(); i++) {
             futures.add(executorService.submit(new Task(list.get(i))));
@@ -76,7 +76,7 @@ public class GuavaMultiThread {
 
         @Override
         public String call() throws Exception {
-            System.out.println("已卖" + ticket);
+            System.out.println("窗口："+Thread.currentThread().getName()+",已卖" + ticket);
             return ticket;
         }
     }
