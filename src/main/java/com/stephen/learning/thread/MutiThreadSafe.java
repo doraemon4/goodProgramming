@@ -1,5 +1,6 @@
 package com.stephen.learning.thread;
 
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,8 +16,9 @@ public class MutiThreadSafe {
     private static int synchronizedCount = 0;
 
     private static void volatileCount() {
+        ExecutorService executorService=Executors.newFixedThreadPool(3);
         for (int i = 0; i < 10; i++) {
-            Executors.newFixedThreadPool(3).execute(new Runnable() {
+            executorService.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -32,8 +34,9 @@ public class MutiThreadSafe {
     }
 
     private static void atomicCount() {
+        ExecutorService executorService=Executors.newFixedThreadPool(3);
         for (int i = 0; i < 10; i++) {
-            Executors.newFixedThreadPool(3).execute(new Runnable() {
+            executorService.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {
@@ -49,8 +52,9 @@ public class MutiThreadSafe {
     }
 
     private static void synchronizedCount() {
+        ExecutorService executorService=Executors.newFixedThreadPool(3);
         for (int i = 0; i < 10; i++) {
-            Executors.newFixedThreadPool(3).execute(new Runnable() {
+            executorService.execute(new Runnable() {
                 @Override
                 public void run() {
                     // 通过synchronized关键字来保证线程之间的有序性
