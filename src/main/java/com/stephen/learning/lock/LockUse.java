@@ -9,7 +9,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @Date: 2018/9/29 20:16
  * @Description: lock的使用
  */
-public class LockTest {
+public class LockUse {
     private static Lock lock = new ReentrantLock();
 
     static class Producer implements Runnable {
@@ -61,7 +61,7 @@ public class LockTest {
     }
 
     public static void main(String[] args) {
-        new Thread(new LockTest.Producer()).start();
-        new Thread(new LockTest.Consumer()).start();
+        new Thread(new LockUse.Producer()).start();
+        new Thread(new LockUse.Consumer()).start();
     }
 }

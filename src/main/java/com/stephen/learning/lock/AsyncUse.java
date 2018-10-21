@@ -5,7 +5,7 @@ package com.stephen.learning.lock;
  * @Date: 2018/9/29 19:52
  * @Description:
  */
-public class AsyncTest {
+public class AsyncUse {
 
     static class Producer implements Runnable {
 
@@ -32,7 +32,7 @@ public class AsyncTest {
     }
 
     public static void main(String[] args) {
-        new Thread(new AsyncTest.Producer()).start();
-        new Thread(new AsyncTest.Consumer()).start();
+        new Thread(new AsyncUse.Producer()).start();
+        new Thread(new AsyncUse.Consumer()).start();
     }
 }

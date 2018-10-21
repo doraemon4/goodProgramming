@@ -5,7 +5,7 @@ package com.stephen.learning.lock;
  * @Date: 2018/9/29 18:30
  * @Description: synchronized的使用
  */
-public class SyncTest {
+public class SyncUse {
     public static final Object obj = new Object();
 
     static class Producer implements Runnable{
@@ -14,12 +14,12 @@ public class SyncTest {
         public void run() {
             int count=10;
             while (count>0){
-                synchronized (SyncTest.obj) {
+                synchronized (SyncUse.obj) {
                     count--;
                     System.out.println("Producer");
-                    SyncTest.obj.notifyAll();
+                    SyncUse.obj.notifyAll();
                     try{
-                        SyncTest.obj.wait();
+                        SyncUse.obj.wait();
                     }catch (Exception e){
                         e.printStackTrace();
                     }
@@ -35,12 +35,12 @@ public class SyncTest {
         public void run() {
             int count=10;
             while (count>0){
-                synchronized (SyncTest.obj) {
+                synchronized (SyncUse.obj) {
                     count--;
                     System.out.println("Consumer");
-                    SyncTest.obj.notifyAll();
+                    SyncUse.obj.notifyAll();
                     try{
-                        SyncTest.obj.wait();
+                        SyncUse.obj.wait();
                     }catch (Exception e){
                         e.printStackTrace();
                     }

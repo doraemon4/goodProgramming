@@ -19,6 +19,7 @@ public class SemaphoreUse {
             semaphore.acquire();
             System.out.println("当前线程：" + Thread.currentThread().getName());
             System.out.println("start at " + System.currentTimeMillis());
+            System.out.println("当前还有"+semaphore.getQueueLength()+"个线程在等待");
             TimeUnit.SECONDS.sleep(5);
             /**do something*/
             System.out.println("end at " + System.currentTimeMillis());
@@ -56,7 +57,7 @@ public class SemaphoreUse {
         try{
             //发出关闭线程池的通知
             executorService.shutdown();
-            if(!executorService.awaitTermination(waitTime,TimeUnit.MILLISECONDS)){
+            if(!executorService.awaitTermination(waitTime,TimeUnit.SECONDS)){
                 //如果超时，线程强制中断
                 executorService.shutdownNow();
             }
@@ -80,7 +81,7 @@ public class SemaphoreUse {
 
     public static void main(String[] args) {
         new SemaphoreUse().startOperate();
-        new SemaphoreUse().startOperate2();
+        //new SemaphoreUse().startOperate2();
 
     }
 }

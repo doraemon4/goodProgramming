@@ -31,6 +31,7 @@ public class MutiThreadSafe {
                 }
             });
         }
+        executorService.shutdown();
     }
 
     private static void atomicCount() {
@@ -49,6 +50,7 @@ public class MutiThreadSafe {
                 }
             });
         }
+        executorService.shutdown();
     }
 
     private static void synchronizedCount() {
@@ -64,6 +66,7 @@ public class MutiThreadSafe {
                 }
             });
         }
+        executorService.shutdown();
     }
 
     public static void main(String[] args) {
