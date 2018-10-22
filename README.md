@@ -27,7 +27,8 @@
         }catch (Exception e){
             e.printStackTrace();
         }
-
+*  exchanger实现两个线程之间交换交换数据，如果没有其他线程交换，将一直阻塞下去。
+![Image text](https://github.com/doraemon4/goodProgramming/blob/master/png/exchanger.png)
 ### linux一些常用的命令:
 * ssh 连接服务器
 * scp 源文件  目的机器地址  
