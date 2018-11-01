@@ -1,12 +1,10 @@
 package com.stephen.learning.thread;
 
 import com.google.common.collect.Lists;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.ListeningExecutorService;
-import com.google.common.util.concurrent.MoreExecutors;
+import com.google.common.util.concurrent.*;
 import lombok.extern.slf4j.Slf4j;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -44,6 +42,18 @@ public class GuavaMultiThread {
         ListeningExecutorService executorService = MoreExecutors.listeningDecorator(pool);
         for (int i = 0; i < list.size(); i++) {
             futures.add(executorService.submit(new Task(list.get(i))));
+            //为每一个执行过程添加回调处理
+            /*Futures.addCallback(executorService.submit(new Task(list.get(i))), new FutureCallback<String>() {
+                @Override
+                public void onSuccess(@Nullable String s) {
+                    System.out.println("操作成功："+s);
+                }
+
+                @Override
+                public void onFailure(Throwable throwable) {
+                    System.out.println("操作失败！");
+                }
+            },pool);*/
         }
 
         final ListenableFuture<List<String>> resultsFuture = Futures.successfulAsList(futures);
