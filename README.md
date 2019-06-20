@@ -29,6 +29,8 @@
         }
 *  exchanger实现两个线程之间交换交换数据，如果没有其他线程交换，将一直阻塞下去。
 ![Image text](https://github.com/doraemon4/goodProgramming/blob/master/png/exchanger.png)
+*  Phaser可以把一组线程的执行分为多个阶段(phase),并在每个阶段实现线程同步,而且每个阶段可以减少或者增加线程
+![Image text](https://github.com/doraemon4/goodProgramming/blob/master/png/phaser使用.png)
 ### linux一些常用的命令:
 * ssh 连接服务器
 * scp 源文件  目的机器地址  
