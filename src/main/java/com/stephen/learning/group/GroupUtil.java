@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -49,6 +50,8 @@ public class GroupUtil {
         list.add(new Student("jenny","female",98));
         list.add(new Student("alice","female",70));
         list.add(new Student("lily","female",100));
+        list.sort(Comparator.comparing(Student::getScore));
+        System.out.println(list);
         return list;
     }
 

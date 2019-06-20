@@ -80,8 +80,8 @@ public class SemaphoreUse {
     }
 
     public static void main(String[] args) {
-        new SemaphoreUse().startOperate();
-        //new SemaphoreUse().startOperate2();
+        //new SemaphoreUse().startOperate();
+        new SemaphoreUse().startOperate2();
 
     }
 }

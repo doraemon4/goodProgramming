@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class GoogleCache {
     private static LoadingCache<String,String> loadingCache=CacheBuilder.newBuilder().
             //当缓存项在指定的时间段内没有更新就会被回收
-            expireAfterWrite(10,TimeUnit.MINUTES).
+            expireAfterWrite(8,TimeUnit.SECONDS).
             //当缓存项在指定的时间段内没有被读或写就会被回收
             //expireAfterAccess(10,TimeUnit.SECONDS).
             //当缓存项上一次更新操作之后的多久会被刷新
@@ -67,7 +67,7 @@ public class GoogleCache {
 
     public static void main(String[] args) throws Exception {
         for(int i=0;i<5;i++){
-            TimeUnit.SECONDS.sleep(5);
+            TimeUnit.SECONDS.sleep(2);
             System.out.println(GoogleCache.getValue("name"));
         }
         map.put("name","mary");

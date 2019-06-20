@@ -46,7 +46,7 @@ public class MutiThreadSafe {
                         e.printStackTrace();
                     }
                     // 通过使用Atomic包中的原子类保证数据操作是原子的（数据没有重复，表示是原子操作），但是不能保障有序性
-                    System.out.println("atomic count: " + atomicCount.incrementAndGet());
+                    System.out.println("当前线程:"+Thread.currentThread().getName()+"\tatomic count: " + atomicCount.incrementAndGet());
                 }
             });
         }
@@ -61,7 +61,7 @@ public class MutiThreadSafe {
                 public void run() {
                     // 通过synchronized关键字来保证线程之间的有序性
                     synchronized (MutiThreadSafe.class) {
-                        System.out.println("synchronized count: " + (++synchronizedCount));
+                        System.out.println("当前线程:"+Thread.currentThread().getName()+"\tsynchronized count: " + (++synchronizedCount));
                     }
                 }
             });
@@ -71,7 +71,7 @@ public class MutiThreadSafe {
 
     public static void main(String[] args) {
         volatileCount();
-        atomicCount();
-        synchronizedCount();
+        //atomicCount();
+        //synchronizedCount();
     }
 }
